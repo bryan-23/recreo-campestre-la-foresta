@@ -24,5 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/main', function () {
         return view('admin.desktop');
     });
+    Route::get('/Platos', function () {
+        return view('admin.Platos.index');
+    });
 
 });
