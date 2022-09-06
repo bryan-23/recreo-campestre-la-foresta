@@ -6245,6 +6245,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  width: 400px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
