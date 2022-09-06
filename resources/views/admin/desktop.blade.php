@@ -5,6 +5,11 @@
 <div id="layoutSidenav">
     @include('admin.sidebar')
     <div id="layoutSidenav_content">
+        <div>
+            <div class = "text-center">
+            <img src="../imagenes/COLLAGE.jpg" alt=""width="1100" height="500">
+            </div>
+        </div>
         <hr>
         <footer class="footer-admin mt-auto footer-light">
             <div class="container-xl px-4">
