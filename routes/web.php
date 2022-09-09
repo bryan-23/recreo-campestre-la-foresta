@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MesaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +27,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/Platos', function () {
         return view('admin.Platos.index');
     });
-
+    Route::get("/mesa", [MesaController::class, "listar_mesas"])->name("lista_mesass");
+    Route::post("/mesa", [MesaController::class, "crear_mesas"])->name("crear_mesass");
+    Route::get("/crear_mesa", function () {
+        return view('admin.mesas.crear_mesas');
+    })->name("crear_mesa");
 });
