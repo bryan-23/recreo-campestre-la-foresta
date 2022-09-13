@@ -15,8 +15,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-             </div>
+                </div>               
+                    <div class="container">
+                      <hr>
+                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
+                            MESA 1
+                        </a>
                 </div>
             </main>
         </div>
