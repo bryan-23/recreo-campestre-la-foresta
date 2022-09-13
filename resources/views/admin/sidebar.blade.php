@@ -28,7 +28,7 @@
                             </div>
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                                 data-bs-target="#collapsePlates" aria-expanded="false" aria-controls="collapsePlates">
-                                <div class="nav-link-icon"><em class='bx bx-cog'></em></div>
+                                <div class="nav-link-icon"><i class='bx bx-desktop'></i></div>
                                 MOSTRADOR
                                 <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
                                         style="color:gray; font-size:16px;"></em></div>
