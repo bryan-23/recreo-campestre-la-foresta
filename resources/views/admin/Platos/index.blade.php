@@ -21,6 +21,35 @@
                         <a class="btn btn-blue" href="{{route('crear_mesa')}}">
                             MESA 1
                         </a>
+                    </div>
+
+                    <div class="container">
+                      <hr>
+                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
+                            MESA 2
+                        </a>
+                    </div>
+
+                    <div class="container">
+                      <hr>
+                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
+                            MESA 3
+                        </a>
+                    </div>
+
+                    <div class="container">
+                      <hr>
+                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
+                            MESA 4
+                        </a>
+                    </div>
+
+                    <div class="container">
+                      <hr>
+                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
+                            MESA 5
+                        </a>
+                    </div>
                 </div>
             </main>
         </div>
