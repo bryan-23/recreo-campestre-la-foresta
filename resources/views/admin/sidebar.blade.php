@@ -12,14 +12,14 @@
                             <!-- Sidenav Menu Heading (admin)-->
                             <div class="sidenav-menu-heading">Administracion</div>
                             <!-- Sidenav Link (Home)-->
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                            <!--<a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                                 data-bs-target="#collapseConfiguration" aria-expanded="false"
                                 aria-controls="collapseConfiguration">
                                 <div class="nav-link-icon"><em class='bx bx-cog'></em></div>
                                 Mostrador
                                 <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
                                         style="color:gray; font-size:16px;"></em></div>
-                            </a>
+                            </a>-->
                             <div class="collapse" id="collapseConfiguration" data-bs-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                                     <li class="nav-item">
@@ -29,26 +29,26 @@
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                                 data-bs-target="#collapsePlates" aria-expanded="false" aria-controls="collapsePlates">
                                 <div class="nav-link-icon"><em class='bx bx-cog'></em></div>
-                                MENUS
+                                MOSTRADOR
                                 <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
                                         style="color:gray; font-size:16px;"></em></div>
                             </a>
                             <div class="collapse" id="collapsePlates" data-bs-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/admin/Platos">PLATOS</a>
+                                        <a class="nav-link" href="/admin/Platos">MESAS</a>
                                     </li>
                                 </nav>
                             </div>
                             <div>
-                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                                <!--<a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                                     data-bs-target="#collapsePlates" aria-expanded="false"
                                     aria-controls="collapsePlates">
                                     <div class="nav-link-icon"><em class='bx bx-cog'></em></div>
                                     MESAS
                                     <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
                                             style="color:gray; font-size:16px;"></em></div>
-                                </a>
+                                </a>-->
                             </div>
 
                             <!-- Divider -->
