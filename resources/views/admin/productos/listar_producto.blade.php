@@ -9,7 +9,7 @@
        <div class="container">
     
         <a class="btn btn-blue" href="{{route('agregar_producto')}}">
-            AGREGAR MENU
+            AGREGAR
         </a>
         <table class="table">
             <thead>
