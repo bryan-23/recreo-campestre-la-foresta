@@ -43,8 +43,8 @@
                             <div>
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                                 data-bs-target="#collapseCarta" aria-expanded="false" aria-controls="collapseCarta">
-                                <div class="nav-link-icon"><i class='bx bx-desktop'></i></div>
-                                MENU A LA CARTA
+                                <div class="nav-link-icon"><i class='bx bx-bowl-hot'></i></div>
+                                LA CARTA DE MENU
                                 <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
                                         style="color:gray; font-size:16px;"></em></div>
                             </a>
@@ -59,7 +59,11 @@
                                             style="color:gray; font-size:16px;"></em></div>
                                 </a>-->
                             </div>
-                            
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                                data-bs-target="#collapseCarta" aria-expanded="false" aria-controls="collapseCarta">
+                                <div class="nav-link-icon"><i class='bx bx-power-off' ></i></div>
+                                Cerrar Sesion
+                            </a>
                             
                             <!-- Divider -->
                             <hr class="sidebar-divider">
