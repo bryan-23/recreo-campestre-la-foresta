@@ -24,9 +24,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/main', function () {
         return view('admin.desktop');
     });
-    Route::get('/Platos', function () {
-        return view('admin.Platos.index');
-    });
+
+
+    Route::get("/listado_mesas", [MesaController::class, "listado_mesas"])->name("listado_mesass");
+
     Route::get("/mesa", [MesaController::class, "listar_mesas"])->name("lista_mesass");
     Route::post("/mesa", [MesaController::class, "crear_mesas"])->name("crear_mesass");
     Route::get("/crear_mesa", function () {

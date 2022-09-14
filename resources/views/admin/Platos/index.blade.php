@@ -18,89 +18,46 @@
                 </div> 
 
                     <div class="container">
-                      <hr>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 1
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 2
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 3
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 4
-                        </a>
-</hr>
+                        <div class="row">
+                            @foreach($listado_mesas as $mesa)
+                      
+                       @if($mesa->estado == "disponible")
+                       <div class="card" style="width: 12rem;">
+                        <img src="{{ asset('imagenes/disponible.jpg') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$mesa->numero}}</h5>
+                        
+                          <a href="#" class="btn btn-primary">RESERVAR</a>
+                        </div>
+                      </div>
+                      
+                       @elseif($mesa->estado == "ocupado")
+                       <div class="card" style="width: 12rem;">
+                        <img src="{{ asset('imagenes/ocupado.jpg') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$mesa->numero}}</h5>
+                        
+                          <a href="#" class="btn btn-primary">EDITAR</a>
+                        </div>
+                      </div>
+                       
+                       @elseif($mesa->estado == "reservado")
+                       <div class="card" style="width: 12rem;">
+                        <img src="{{ asset('imagenes/reservado.jpg') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$mesa->numero}}</h5>
+                        
+                          <a href="#" class="btn btn-primary">PENDIENTE</a>
+                        </div>
+                      </div>
+                       @endif
+                       @endforeach 
+                        </div>
+                       
+                      
                     </div>
 
-                    <div class="container">
-                    <hr>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 5
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 6
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 7
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 8
-                        </a>
-</hr>
-                    </div>
-
-                    <div class="container">
-                    <hr>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 9
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 10
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 11
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 12
-                        </a>
-</hr>
-                    </div>
-
-                    <div class="container">
-                    <hr>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 13
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 14
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 15
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 16
-                        </a>
-</hr>
-                    </div>
-
-                    <div class="container">
-                    <hr>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 17
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 18
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 19
-                        </a>
-                        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-                            MESA 20
-                        </a>
-</hr>
-                    </div>
+                   
                 </div>
             </main>
         </div>

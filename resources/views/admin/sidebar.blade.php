@@ -36,7 +36,7 @@
                             <div class="collapse" id="collapsePlates" data-bs-parent="#accordionSidenav">
                                 <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/admin/Platos">N° MESA</a>
+                                        <a class="nav-link" href="/admin/listado_mesas">N° MESA</a>
                                     </li>
                                 </nav>
                             </div>

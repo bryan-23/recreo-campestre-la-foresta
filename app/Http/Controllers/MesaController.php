@@ -18,5 +18,11 @@ class MesaController extends Controller
          Mesa::create($request->all());
          return redirect()->route("lista_mesass");
       }
+      public function listado_mesas(){
+
+        $listado_mesas=Mesa::all();
+        return view("admin.platos.index")->with(["listado_mesas"=>$listado_mesas]);
+  
+      }
 
 }

@@ -12,7 +12,7 @@
     <select name="estado" id="" class="form-control">
         <option value="ocupado"> ocupado</option>
         <option value="disponible"> disponible</option>
-
+        <option value="reservado"> reservado</option>
     </select>
     <button class="btn btn-danger" type="submit">
         crear
