@@ -59,8 +59,9 @@
                                             style="color:gray; font-size:16px;"></em></div>
                                 </a>-->
                             </div>
-                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                                data-bs-target="#collapseCarta" aria-expanded="false" aria-controls="collapseCarta">
+                            <!-- boton cerrar sesion -->
+                            <a class="nav-link collapsed" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                data-bs-target="#collapseCerrar sesion" aria-expanded="false" aria-controls="collapseCerrar sesion">
                                 <div class="nav-link-icon"><i class='bx bx-power-off' ></i></div>
                                 Cerrar Sesion
                             </a>
