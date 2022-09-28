@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MesaController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,4 +34,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get("/crear_mesa", function () {
         return view('admin.mesas.crear_mesas');
     })->name("crear_mesa");
+
+    Route::get("/producto", [ProductoController::class, "listar_productos"])->name("listar_productos");
+    Route::post("/producto", [ProductoController::class, "agregar_producto"])->name("agregar_producto");
+    Route::get("/agregar_producto", function () {
+        return view('admin.productos.agregar_producto');
+    })->name("agregar_producto");
 });

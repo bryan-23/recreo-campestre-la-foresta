@@ -44,10 +44,17 @@
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                                 data-bs-target="#collapseCarta" aria-expanded="false" aria-controls="collapseCarta">
                                 <div class="nav-link-icon"><i class='bx bx-bowl-hot'></i></div>
-                                LA CARTA DE MENU
+                                MENU A LA CARTA
                                 <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
                                         style="color:gray; font-size:16px;"></em></div>
                             </a>
+                            <div class="collapse" id="collapseCarta" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/admin/producto">MENU DEL DIA</a>
+                                    </li>
+                                </nav>
+                            </div>
                             </div>
                             <div>
                                 <!--<a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
