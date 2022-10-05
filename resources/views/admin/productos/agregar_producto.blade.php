@@ -8,8 +8,11 @@
         <br>
 <form action="{{route('agregar_producto')}}" method="post"> 
     @csrf
+    <label class="small mb-1" for="inputNOMBRE">NOMBRE  (BEBIDA, COMIDA)</label>
     <input type="text" class="form-control" name="nombre">
+    <label class="small mb-1" for="inputPRECIO">PRECIO</label>
     <input type="text" class="form-control" name="precio">
+    <label class="small mb-1" for="inputSTOCK">STOCK</label>
     <input type="text" class="form-control" name="stock">
     
     <button class="btn btn-danger" type="submit">
