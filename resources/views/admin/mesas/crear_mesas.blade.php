@@ -8,7 +8,9 @@
         <br>
 <form action="{{route('crear_mesass')}}" method="post"> 
     @csrf
+    <label class="small mb-1" for="inputNºDEMESAS">Nº DE MESAS</label>
     <input type="text" class="form-control" name="numero">
+    <label class="small mb-1" for="inputESTADO">ESTADO</label>
     <select name="estado" id="" class="form-control">
         <option value="ocupado"> ocupado</option>
         <option value="disponible"> disponible</option>
@@ -26,7 +28,6 @@
                     <div class="col-md-6 small">Copyright © Your Website 2022</div>
                     <div class="col-md-6 text-md-end small">
                         <a href="#!">Privacy Policy</a>
-                        ·
                         <a href="#!">Terms &amp; Conditions</a>
                     </div>
                 </div>
