@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\MesaPedidoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get("/agregar_producto", function () {
         return view('admin.productos.agregar_producto');
     })->name("agregar_producto");
+    
+    Route::resource("/pedidos",PedidoController::class);
+    Route::resource("/mesa.pedido",MesaPedidoController::class);
+    
 });
