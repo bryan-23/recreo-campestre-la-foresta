@@ -35,9 +35,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         return view('admin.mesas.crear_mesas');
     })->name("crear_mesa");
 
+    Route::get("/listado_producto", [ProductoController::class, "listado_producto"])->name("listado_productoss");
+
     Route::get("/producto", [ProductoController::class, "listar_productos"])->name("listar_productos");
     Route::post("/producto", [ProductoController::class, "agregar_producto"])->name("agregar_producto");
-    Route::get("/agregar_producto", function () {
-        return view('admin.productos.agregar_producto');
-    })->name("agregar_producto");
+    
+    Route::get("/agregar_producto", [ProductoController::class, "verAgregarProductos"]);
+    Route::post("/agregar_producto", [ProductoController::class, "agregar_producto"])->name("agregar_producto");
+    
 });

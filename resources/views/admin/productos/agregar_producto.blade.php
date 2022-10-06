@@ -16,7 +16,7 @@
     <input type="text" class="form-control" name="stock">
     
     <button class="btn btn-danger" type="submit">
-        GUARDAR
+        GUARDAR 1
 
     </button>
 </form>
