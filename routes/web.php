@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ReservaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,5 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
     Route::get("/agregar_producto", [ProductoController::class, "verAgregarProductos"]);
     Route::post("/agregar_producto", [ProductoController::class, "agregar_producto"])->name("agregar_producto");
+
+    Route::post("/recerva", [ReservaController::class, "store"])->name("recerva.store");
     
 });
