@@ -15,51 +15,65 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
-                    <div class="container">
-                        <div class="row">
-                            @foreach($listado_mesas as $mesa)
-                      
-                       @if($mesa->estado == "disponible")
-                       <div class="card" style="width: 12rem;">
-                        <img src="{{ asset('imagenes/disponible.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{$mesa->numero}}</h5>
-                        
-                          <a href="#" class="btn btn-primary">RESERVAR</a>
-                        </div>
-                      </div>
-                      
-                       @elseif($mesa->estado == "ocupado")
-                       <div class="card" style="width: 12rem;">
-                        <img src="{{ asset('imagenes/ocupado.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{$mesa->numero}}</h5>
-                        
-                          <a href="#" class="btn btn-primary">EDITAR</a>
-                        </div>
-                      </div>
-                       
-                       @elseif($mesa->estado == "reservado")
-                       <div class="card" style="width: 12rem;">
-                        <img src="{{ asset('imagenes/reservado.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">{{$mesa->numero}}</h5>
-                        
-                          <a href="#" class="btn btn-primary">PENDIENTE</a>
-                        </div>
-                      </div>
-                       @endif
-                       @endforeach 
-                        </div>
-                       
-                      
+                <div class="container">
+                    <div class="row">
+                        @foreach ($listado_mesas as $mesa)
+                            <div class="col mt-4">
+                                <div class="card" style="width: 12rem;">
+                                    <img src="{{ asset('imagenes/disponible.jpg') }}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $mesa->numero }}</h5>
+                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target='#modal{{ $mesa->id }}'>
+                                            Editar
+                                        </button>
+                                        <span class="badge bg-success">Disponible</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id='modal{{ $mesa->id }}' tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{ $mesa->numero }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="{{route('recerva.store')}}" method="post">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <label for="productos" class="form-label">Productos disponibles</label>
+                                                <input type="hidden" name="mesa" value={{ $mesa->id }}>
+                                                <select class="form-select" name="producto" aria-label="Selecciona el Producto">
+                                                    @foreach ($lista_productos as $producto)
+                                                        <option value={{$producto->id}}>Producto: {{$producto->nombre}} - Stock: {{$producto->stock}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <div class="mb-3">
+                                                    <label for="cantidad" class="form-label">Cantidad</label>
+                                                    <input type="number" name="cantidad" class="form-control" id="cantidad"
+                                                        aria-describedby="emailHelp">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-
-                   
                 </div>
             </main>
         </div>
+
     </div>
 @endsection
