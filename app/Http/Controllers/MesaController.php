@@ -26,4 +26,10 @@ class MesaController extends Controller
     $listado_mesas = Mesa::all();
     return view("admin.platos.index", compact('listado_mesas', 'lista_productos'));
   }
+  public function edita_mesas(){
+
+    $editar_mesas=Mesa::all();
+    return view("admin.mesas.edita_mesas")->with(["editar_mesas"=>$editar_mesas]);
+
+  }
 }

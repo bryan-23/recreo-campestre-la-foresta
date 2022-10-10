@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\MesaPedidoController;
 use App\Http\Controllers\ReservaController;
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
     Route::get("/agregar_producto", [ProductoController::class, "verAgregarProductos"]);
     Route::post("/agregar_producto", [ProductoController::class, "agregar_producto"])->name("agregar_producto");
+    
+    Route::resource("/pedidos",PedidoController::class);
+    Route::resource("/mesa.pedido",MesaPedidoController::class);
+    
 
     Route::post("/recerva", [ReservaController::class, "store"])->name("recerva.store");
     
