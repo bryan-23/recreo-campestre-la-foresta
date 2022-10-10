@@ -51,7 +51,7 @@
                                                 <input type="hidden" name="mesa" value={{ $mesa->id }}>
                                                 <select class="form-select" name="producto" aria-label="Selecciona el Producto">
                                                     @foreach ($lista_productos as $producto)
-                                                        <option value={{$producto->id}}>Producto: {{$producto->nombre}} - Stock: {{$producto->stock}}</option>
+                                                        <option value={{$producto->id}}>Producto: {{$producto->nombre}} - Precio: {{$producto->precio}} - Stock: {{$producto->stock}}</option>
                                                     @endforeach
                                                 </select>
                                                 <div class="mb-3">
