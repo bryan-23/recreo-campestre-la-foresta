@@ -35,15 +35,13 @@
                             </div>
 
                             <!-- Modal -->
-                            <div class="modal fade" id='modal{{ $mesa->id }}' tabindex="-1"
+                            <div class="modal fade" id='modal{{ $mesa->id }}'  data-bs-backdrop="static"  tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header  ">
                                             <h5 class="modal-title text-uppercase" id="exampleModalLabel">
                                                 {{ $mesa->numero }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <form action="{{ route('recerva.store') }}" method="post">
                                             @csrf
@@ -68,7 +66,7 @@
                                                         </div>
                                                         <div class="col-auto">
                                                             <input type="text" id="buscar"
-                                                                onkeyup="handleProductLooking(event);" class="form-control"
+                                                                onkeyup="handleProductLooking(event);" name="{{ $mesa->id }}" class="form-control"
                                                                 placeholder="Ingrese el codigo del producto">
                                                         </div>
                                                     </div>
@@ -93,22 +91,21 @@
                                                             <th scope="col">Sub Total</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="databody" class="table-group-divider">
-                                                        {{--  <tr>
-                                                            <td class="text-center" colspan="6"><strong>NO HAY PRODUCTOS AUN</strong></td>
-                                                        </tr>  --}}
-
+                                          
+                                                    <tbody id="databody{{ $mesa->id }}" class="table-group-divider">
+                                                    
                                                     </tbody>
+                                                  
                                                     <tfoot>
                                                         <tr>
                                                             <td colspan="5"><strong>TOTAL</strong></td>
-                                                            <td><span id="total">0</span></td>
+                                                            <td><span id="total{{ $mesa->id }}">0</span></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
+                                                <button type="button" name="{{ $mesa->id }}" onclick="handleClose(event);" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cerrar</button>
                                                 <button type="button" class="btn btn-primary">Guardar</button>
                                             </div>

@@ -95,13 +95,15 @@
         }
 
         function handleProductLooking(e) {
-            const tablebody = document.querySelector("#databody");
+            const name = e.target.name;
+            const tablebody = document.querySelector("#databody"+name);
             var keycode = e.keyCode || e.which;
             if (keycode == 13) {
                 const value = e.target.value;
                 fetch('http://127.0.0.1:8000/admin/recerva/' + value)
                     .then((response) => response.json())
                     .then((data) => {
+                        
                         if (data.length > 0) {
                             productsSelected.push(data[0]);
                             let tr = document.createElement("tr");
@@ -112,7 +114,7 @@
                                 <td>${item.nombre}</td>
                                 <td>Descripcion arroz chaufa</td>
                                 <td>
-                                    <input onchange="calculateSubTotal(event);" id=${item.codigo} type="text" class="form-control" value=${item.stock}>
+                                    <input onchange="calculateSubTotal(event);" name=${name} id=${item.codigo} type="text" class="form-control" value=${item.stock}>
                                 </td>
                                 <td>${item.precio}</td>
                                 <td>
@@ -124,7 +126,7 @@
                                 }
                                 //Calculate Total
                                 totalInitial = totalInitial + item.subTotal;
-                                document.querySelector("#total").innerHTML = totalInitial;
+                                document.querySelector("#total"+name).innerHTML = totalInitial;
                             })
                             productFinalSelected = [...productsSelected];
                             tablebody.appendChild(tr);
@@ -136,6 +138,7 @@
         }
 
         function calculateSubTotal(e) {
+            const name = e.target.name;
             let value = e.target.value;
             let codigo = e.target.id;
             //TODO: Validar que el input solo acepte numeros
@@ -174,7 +177,7 @@
                 productFinalSelected.forEach(item => {
                     total = total + item.subTotal;
                 })
-                document.querySelector("#total").innerHTML = total;
+                document.querySelector("#total"+name).innerHTML = total;
             }
         }
 
@@ -185,6 +188,17 @@
                 title: title,
                 text: message,
             })
+        }
+
+        function handleClose(e){
+            const name = e.target.name;
+            let trs = document.querySelectorAll(`#databody${name} tr`);
+            trs.forEach(iten => {
+                iten.remove();
+            })
+            document.querySelector("#total"+name).innerHTML = "0";
+            productsSelected = [];
+            productFinalSelected = [];
         }
     </script>
 </body>
