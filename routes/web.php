@@ -50,6 +50,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource("/mesa.pedido",MesaPedidoController::class);
     
 
+    Route::get("/recerva/{recerva}", [ReservaController::class, "show"])->name("recerva.show");
     Route::post("/recerva", [ReservaController::class, "store"])->name("recerva.store");
-    
 });
