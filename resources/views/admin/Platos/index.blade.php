@@ -27,7 +27,8 @@
                                         <h5 class="card-title">{{ $mesa->numero }}</h5>
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target='#modal{{ $mesa->id }}'>
-                                            Editar
+                                            TOMA PEDIDO 
+                                            <div class="nav-link-icon"><i class='bx bx-edit'></i></div>
                                         </button>
                                         <span class="badge bg-success">Disponible</span>
                                     </div>
