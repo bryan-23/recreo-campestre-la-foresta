@@ -18,6 +18,9 @@
                         id
                     </th>
                     <th>
+                        codigo
+                    </th>
+                    <th>
                         nombre
                     </th>
                     <th>
@@ -25,6 +28,9 @@
                     </th>
                     <th>
                         stock
+                    </th>
+                    <th>
+                        descripcion
                     </th>
                 </tr>
             </thead>
@@ -35,6 +41,9 @@
                             {{$item->id}}
                         </td>
                         <td>
+                            {{$item->codigo}}
+                        </td>
+                        <td>
                             {{$item->nombre}}
                         </td>
                         <td>
@@ -42,6 +51,9 @@
                         </td>
                         <td>
                             {{$item->stock}}
+                        </td>
+                        <td>
+                            {{$item->descripcion}}
                         </td>
                     </tr>
                 @endforeach
