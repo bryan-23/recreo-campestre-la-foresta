@@ -11,17 +11,27 @@
         <a class="btn btn-blue" href="{{route('crear_mesa')}}">
             crear mesa
         </a>
+    <style type="text/css">
+         table, th,td {
+         border: 1px solid black;
+         border-collapse: collapse;
+        }
+        th,td{
+            padding: 10px;
+        }
+    </style>
         <table class="table">
+            <table style="width: 50%">
             <thead>
                 <tr>
                     <th>
-                        id
+                        ID
                     </th>
                     <th>
-                        numero
+                        NUMERO
                     </th>
                     <th>
-                        estado
+                        ESTADO
                     </th>
                 </tr>
             </thead>
