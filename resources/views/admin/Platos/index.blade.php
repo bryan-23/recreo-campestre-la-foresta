@@ -27,7 +27,8 @@
                                         <h5 class="card-title">{{ $mesa->numero }}</h5>
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target='#modal{{ $mesa->id }}'>
-                                            Editar
+                                            TOMA PEDIDO 
+                                            <div class="nav-link-icon"><i class='bx bx-edit'></i></div>
                                         </button>
                                         <span class="badge bg-success">Disponible</span>
                                     </div>
@@ -35,35 +36,79 @@
                             </div>
 
                             <!-- Modal -->
-                            <div class="modal fade" id='modal{{ $mesa->id }}' tabindex="-1"
+                            <div class="modal fade" id='modal{{ $mesa->id }}'  data-bs-backdrop="static"  tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">{{ $mesa->numero }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                        <div class="modal-header  ">
+                                            <h5 class="modal-title text-uppercase" id="exampleModalLabel">
+                                                {{ $mesa->numero }}</h5>
                                         </div>
-                                        <form action="{{route('recerva.store')}}" method="post">
+                                        <form action="{{ route('recerva.store') }}" method="post">
                                             @csrf
                                             <div class="modal-body">
-                                                <label for="productos" class="form-label">Productos disponibles</label>
-                                                <input type="hidden" name="mesa" value={{ $mesa->id }}>
-                                                <select class="form-select" name="producto" aria-label="Selecciona el Producto">
-                                                    @foreach ($lista_productos as $producto)
-                                                        <option value={{$producto->id}}>Producto: {{$producto->nombre}} - Precio: {{$producto->precio}} - Stock: {{$producto->stock}}</option>
-                                                    @endforeach
-                                                </select>
-                                                <div class="mb-3">
-                                                    <label for="cantidad" class="form-label">Cantidad</label>
-                                                    <input type="number" name="cantidad" class="form-control" id="cantidad"
-                                                        aria-describedby="emailHelp">
+                                                <div class="mb-4">
+                                                    <div class="form-check form-check-inline">
+                                                        <input checked="checked" onclick="handleTypeSelected(event);"
+                                                            class="form-check-input" type="radio" name="tipo"
+                                                            id="inlineRadio1" value="pedido">
+                                                        <label class="form-check-label" for="inlineRadio1">Pedido</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" onclick="handleTypeSelected(event);"
+                                                            type="radio" name="tipo" id="inlineRadio2" value="reserva">
+                                                        <label class="form-check-label" for="inlineRadio2">Reserva</label>
+                                                    </div>
                                                 </div>
+                                                <div class="row  align-items-center">
+                                                    <div class="col">
+                                                        <div class="col-auto">
+                                                            <label for="buscar" class="col-form-label">Codigo:</label>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <input type="text" id="buscar"
+                                                                onkeyup="handleProductLooking(event);" name="{{ $mesa->id }}" class="form-control"
+                                                                placeholder="Ingrese el codigo del producto">
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-none col" id="reserva">
+                                                        <div class="col-auto">
+                                                            <label for="dni" class="col-form-label">DNI o RUC:</label>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <input type="text" id="dni" class="form-control"
+                                                                placeholder="Ingrese el DNI o RUC del cliente">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Codigo</th>
+                                                            <th scope="col">Nombre Producto</th>
+                                                            <th scope="col">Descripcion</th>
+                                                            <th scope="col">Cantidad</th>
+                                                            <th scope="col">Precio</th>
+                                                            <th scope="col">Sub Total</th>
+                                                        </tr>
+                                                    </thead>
+                                          
+                                                    <tbody id="databody{{ $mesa->id }}" class="table-group-divider">
+                                                    
+                                                    </tbody>
+                                                  
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="5"><strong>TOTAL</strong></td>
+                                                            <td><span id="total{{ $mesa->id }}">0</span></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
+                                                <button type="button" name="{{ $mesa->id }}" onclick="handleClose(event);" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                                <button type="button" class="btn btn-primary">Guardar</button>
                                             </div>
                                         </form>
                                     </div>

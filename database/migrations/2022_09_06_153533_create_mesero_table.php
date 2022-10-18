@@ -16,8 +16,9 @@ class CreateMeseroTable extends Migration
         Schema::create('mesero', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("nombre");
-            $table->string("apellido");
+            $table->string("Nombre");
+            $table->string("Apellido");
+            $table->id("DNI");
         });
     }
 

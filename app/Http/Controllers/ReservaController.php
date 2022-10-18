@@ -6,6 +6,7 @@ use App\Models\Reserva;
 use Illuminate\Http\Request;
 use App\Models\Mesa;
 use App\Models\Producto;
+use Facade\FlareClient\Http\Response;
 
 class ReservaController extends Controller
 {
@@ -16,7 +17,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -63,9 +64,10 @@ class ReservaController extends Controller
      * @param  \App\Models\Reserva  $reserva
      * @return \Illuminate\Http\Response
      */
-    public function show(Reserva $reserva)
+    public function show($codigo)
     {
-        //
+        $producto = Producto::where('codigo', $codigo)->get();
+        return response()->json($producto, 201); 
     }
 
     /**
@@ -76,7 +78,7 @@ class ReservaController extends Controller
      */
     public function edit(Reserva $reserva)
     {
-        //
+        
     }
 
     /**
@@ -100,5 +102,10 @@ class ReservaController extends Controller
     public function destroy(Reserva $reserva)
     {
         //
+    }
+
+    public function searchProduct($codigo)
+    {
+        
     }
 }
