@@ -17,7 +17,15 @@ class MesaPedidoController extends Controller
     {
         $mesa=Mesa::find($id);
         $pedidos=$mesa->pedidos;
-        return response()->json(['datos'=>$pedidos],202);
+        //return response()->json(['datos'=>$pedidos],202);
+        echo $pedidos;
+        //echo "<br>";
+        foreach ($pedidos as $pedido) {
+            $detalles_pedido=$pedido->detallespedidos;
+            echo $detalles_pedido;
+            //return response()->json(['detalle'=>$detalles_pedido],202);
+        }
+        return;
     }
 
     /**
