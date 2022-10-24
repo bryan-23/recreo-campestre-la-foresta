@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\MesaPedidoController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,10 +26,12 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('/main', function () {
-        return view('admin.desktop');
-    });
+    // Route::get('/main', function () {
+    //     return view('admin.desktop');
+    // });
 
+    Route::get("/dashboard", [DashboardController::class, "index"])->name("index");
+    
 
     Route::get("/listado_mesas", [MesaController::class, "listado_mesas"])->name("listado_mesass");
 
