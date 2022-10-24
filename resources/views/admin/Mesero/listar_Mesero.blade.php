@@ -8,44 +8,52 @@
         <br>
        <div class="container">
     
-        <a class="btn btn-blue" href="{{route('crear_mesa')}}">
-            crear mesa
+        <a class="btn btn-blue" href="{{route('agregar_producto')}}">
+            AGREGAR
         </a>
-    <style type="text/css">
-         table, th,td {
-         border: 1px solid black;
-         border-collapse: collapse;
-        }
-        th,td{
-            padding: 10px;
-        }
-    </style>
         <table class="table">
-            <table style="width: 50%">
             <thead>
                 <tr>
                     <th>
-                        ID
+                        id
                     </th>
                     <th>
-                        NUMERO
+                        codigo
                     </th>
                     <th>
-                        ESTADO
+                        nombre
+                    </th>
+                    <th>
+                        precio
+                    </th>
+                    <th>
+                        stock
+                    </th>
+                    <th>
+                        descripcion
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($lista_de_mesas as $item)
+                @foreach ($lista_productos as $item)
                     <tr>
                         <td>
                             {{$item->id}}
                         </td>
                         <td>
-                            {{$item->numero}}
+                            {{$item->codigo}}
                         </td>
                         <td>
-                            {{$item->estado}}
+                            {{$item->nombre}}
+                        </td>
+                        <td>
+                            {{$item->precio}}
+                        </td>
+                        <td>
+                            {{$item->stock}}
+                        </td>
+                        <td>
+                            {{$item->descripcion}}
                         </td>
                     </tr>
                 @endforeach

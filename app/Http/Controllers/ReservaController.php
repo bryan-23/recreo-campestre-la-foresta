@@ -54,7 +54,7 @@ class ReservaController extends Controller
 
         $lista_productos = Producto::where('stock', '>', 0)->get();
         $listado_mesas = Mesa::all();
-        return view("admin.platos.index", compact('listado_mesas', 'lista_productos'));
+        return view("admin.platos.index", compact('listado_mesas', 'lista_productos')); //la funcion compact esta pasando datos de las variables lista_productos y listado_mesas a la vista
         // guardar reserva en la tabla pedidos
     }
 
