@@ -6,7 +6,7 @@
                 <li class="nav-item mt-2">
                     <a class="nav-link active" href="/admin/dashboard">
                         <div class="nav-link-icon"><em class='bx bx-home'></em></div>
-                        Inicio
+                        DASHBOARD
                     </a>
                 </li>
                 <!-- Sidenav Menu Heading (admin)-->
