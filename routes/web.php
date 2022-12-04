@@ -7,6 +7,7 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\MesaPedidoController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,7 +52,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
     Route::resource("/pedidos",PedidoController::class);
     Route::resource("/mesa.pedido",MesaPedidoController::class);
-    
+
+    Route::resource('cliente', ClienteController::class);
 
     Route::get("/recerva/{recerva}", [ReservaController::class, "show"])->name("recerva.show");
     Route::post("/recerva", [ReservaController::class, "store"])->name("recerva.store");

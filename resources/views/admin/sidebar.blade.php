@@ -36,7 +36,7 @@
                 <div class="collapse" id="collapsePlates" data-bs-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/cliente">CREAR CLIENTE</a>
+                            <a class="nav-link" href="{{route('cliente.index')}}">CREAR CLIENTE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/mesa">CREAR MESA</a>

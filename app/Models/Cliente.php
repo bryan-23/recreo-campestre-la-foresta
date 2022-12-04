@@ -11,10 +11,11 @@ class Cliente extends Model
     use HasFactory;
     protected $table='cliente';
     protected $fillable=[
-        "nombre","apellido"
+        'documento','nombre', 'apellido','razon_social','id'
     ];
 
-    public function pedidos(){
-        return $this->hasMany(Pedido::class);
+    public function pedido(){
+        return $this->hasMany('App\Models\Pedido','id');
     }
+
 }

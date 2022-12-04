@@ -14,7 +14,7 @@ class Pedido extends Model
     use HasFactory;
     protected $table='pedido';
     protected $fillable=[
-        "monto","mesa_id"
+        'monto','mesa_id','id'
     ];
     
     public function mesas(){
@@ -26,7 +26,7 @@ class Pedido extends Model
     }
     
     public function clientes(){
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Cliente::class, 'id');
     }
 
     public function meseros(){

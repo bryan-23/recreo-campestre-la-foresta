@@ -10,7 +10,7 @@
                         <div class="row justify-content-center">
                             <div class="col-12 col-xl-auto">
                                 <h1 class="page-title">
-                                    {{ _('Add') }} {{ _('User') }}
+                                    
                                 </h1>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                                     <button class="btn btn-primary" id="buscardni" align="right"
                                                         onClick="consultarDni()">{{ __('Search') }}</button>
                                                 </div>
-                                                <form action="{{ route('usuario.store') }}" method="post"
+                                                <form action="{{ route('cliente.store') }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <!--search-->
@@ -56,7 +56,7 @@
                                                         <!-- Form Group (DNI)-->
                                                         <div class="col-md-6">
                                                             <label class="small mb-1" for="inputDNI">DNI</label>
-                                                            <input class="form-control" name="dni" id="dni_ciudadano"
+                                                            <input class="form-control" name="documento" id="dni_ciudadano"
                                                                 type="text" placeholder="DNI" readonly />
                                                         </div>
                                                         <!-- Form Group (name)-->
@@ -74,8 +74,8 @@
                                                         <div class="col-md-6">
                                                             <label class="small mb-1" for="inputFirstName">
                                                                 {{ __('Fathers last name') }}</label>
-                                                            <input class="form-control" name="apellido_paterno"
-                                                                id="apellido" type="text"
+                                                            <input class="form-control" name="apellido"
+                                                                id="apellido_paterno" type="text"
                                                                 placeholder="{{ __('Fathers last name') }}" readonly />
                                                         </div>
                                                     </div>
