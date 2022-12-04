@@ -36,6 +36,9 @@
                 <div class="collapse" id="collapsePlates" data-bs-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                         <li class="nav-item">
+                            <a class="nav-link" href="/admin/cliente">CREAR CLIENTE</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/admin/mesa">CREAR MESA</a>
                         </li>
                         <li class="nav-item">
@@ -59,16 +62,7 @@
                         </nav>
                     </div>
                 </div>
-                <div>
-                    <!--<a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                                    data-bs-target="#collapsePlates" aria-expanded="false"
-                                    aria-controls="collapsePlates">
-                                    <div class="nav-link-icon"><em class='bx bx-cog'></em></div>
-                                    MESAS
-                                    <div class="sidenav-collapse-arrow"><em class='bx bx-chevron-down'
-                                            style="color:gray; font-size:16px;"></em></div>
-                                </a>-->
-                </div>
+                
                 <!-- boton cerrar sesion -->
                 <a class="nav-link collapsed" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
