@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Mesa;
 use App\Models\Pedido;
+use App\Models\Cliente;
+use App\Models\Mesero;
+use App\Models\Producto;
+use App\Models\Detalle;
 use Illuminate\Http\Request;
 use Illuminate\Http\Model;
 
@@ -38,7 +42,54 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = Cliente::find(1);
+        $mesa = Mesa::find($request->input("numeroMesa"));
+        $mesero = Mesero::find(1);
+        //$mesa = Mesa::find($request['mesa']);
+        //$nuevopedido = $request->all();
+        /*Pedido::create([
+            'monto' => $request->input("#total{{ $mesa->id }}"),
+            'mesa_id' => $mesa->id
+        ]);*/
+        $pedido = new Pedido;
+        //$pedido->id = 1;
+        $pedido->monto = $request->input("total_pedido");
+        $pedido->mesa_id = $mesa->id;
+        $pedido->cliente_id = $cliente->id;
+        $pedido->mesero_id = $mesero->id;
+        //$pedido->cliente_id = 4;
+        $pedido->save();
+
+        $objetopedido = $request->all();
+        $productos = Producto::all();
+
+        foreach($objetopedido as $nombre_evento=>$cantidad){
+            foreach($productos as $producto){
+                if($producto->codigo == $nombre_evento){
+                    $producto->stock = $producto->stock - $cantidad;
+                    $producto->save();
+                }
+            }
+        }
+
+        foreach($objetopedido as $detalleProd=>$id){
+            foreach($productos as $producto){
+                if("detalle_".$producto->codigo == $detalleProd){
+                    $detalle = new Detalle;
+                    $detalle->producto_id = $id;
+                    $detalle->pedido_id = $pedido->id;
+                    //$detalle->save();
+                }
+                if($detalleProd == $producto->codigo){
+                    $detalle->cantidad = $request->input("$producto->codigo");
+                    $detalle->total = ($detalle->cantidad)*($producto->precio);
+                    $detalle->save();
+                }
+            }
+        }
+
+        return $request->toArray();
+
     }
 
     /**

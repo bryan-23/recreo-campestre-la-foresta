@@ -18,7 +18,7 @@ class CreateMeseroTable extends Migration
             $table->timestamps();
             $table->string("Nombre");
             $table->string("Apellido");
-            $table->id("DNI");
+            $table->string("DNI");
         });
     }
 

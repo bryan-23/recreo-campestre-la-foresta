@@ -6,12 +6,12 @@ use App\Models\Pedido;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mesero extends Model
-{    
+class Cliente extends Model
+{
     use HasFactory;
-    protected $table='mesero';
+    protected $table='cliente';
     protected $fillable=[
-        "id","Nombre","Apellido","DNI"
+        "nombre","apellido"
     ];
 
     public function pedidos(){

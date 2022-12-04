@@ -44,9 +44,13 @@
                                             <h5 class="modal-title text-uppercase" id="exampleModalLabel">
                                                 {{ $mesa->numero }}</h5>
                                         </div>
-                                        <form action="{{ route('recerva.store') }}" method="post">
+                                        <form action="{{ route('pedidos.store') }}" method="POST">
                                             @csrf
                                             <div class="modal-body">
+                                                <div>
+                                                    <input type="hidden" id="idMesa" name="numeroMesa" value="{{ $mesa->id }}">
+                                                </div>
+                                            
                                                 <div class="mb-4">
                                                     <div class="form-check form-check-inline">
                                                         <input checked="checked" onclick="handleTypeSelected(event);"
@@ -76,7 +80,7 @@
                                                             <label for="dni" class="col-form-label">DNI o RUC:</label>
                                                         </div>
                                                         <div class="col-auto">
-                                                            <input type="text" id="dni" class="form-control"
+                                                            <input type="text" id="dni" name="dni" class="form-control"
                                                                 placeholder="Ingrese el DNI o RUC del cliente">
                                                         </div>
                                                     </div>
@@ -101,6 +105,7 @@
                                                         <tr>
                                                             <td colspan="5"><strong>TOTAL</strong></td>
                                                             <td><span id="total{{ $mesa->id }}">0</span></td>
+                                                            <td><input type="hidden" id="total_pedido{{ $mesa->id }}" name="total_pedido" value="0"></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -108,7 +113,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" name="{{ $mesa->id }}" onclick="handleClose(event);" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary">Guardar</button>
+                                                <!-- <button type="button" class="btn btn-primary" onclick="handleSave(event);">Guardar</button> -->
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
                                             </div>
                                         </form>
                                     </div>

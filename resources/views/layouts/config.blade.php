@@ -95,6 +95,7 @@
         }
 
         function handleProductLooking(e) {
+            //var id_mesa = e.target.name;
             const name = e.target.name;
             const tablebody = document.querySelector("#databody"+name);
             var keycode = e.keyCode || e.which;
@@ -114,7 +115,8 @@
                                 <td>${item.nombre}</td>
                                 <td>Descripcion arroz chaufa</td>
                                 <td>
-                                    <input onchange="calculateSubTotal(event);" name=${name} id=${item.codigo} type="text" class="form-control" value=${item.stock}>
+                                    <input type="hidden" name="detalle_${item.codigo}" value="${item.id}">
+                                    <input onchange="calculateSubTotal(event);" name=${item.codigo} id=${name} type="text" class="form-control" value=${item.stock}>
                                 </td>
                                 <td>${item.precio}</td>
                                 <td>
@@ -127,6 +129,7 @@
                                 //Calculate Total
                                 totalInitial = totalInitial + item.subTotal;
                                 document.querySelector("#total"+name).innerHTML = totalInitial;
+                                document.getElementById("total_pedido"+name).value = totalInitial;
                             })
                             productFinalSelected = [...productsSelected];
                             tablebody.appendChild(tr);
@@ -137,10 +140,12 @@
             }
         }
 
+        //var productosSeleccionados = productFinalSelected;
+
         function calculateSubTotal(e) {
-            const name = e.target.name;
+            const name = e.target.id;
             let value = e.target.value;
-            let codigo = e.target.id;
+            let codigo = e.target.name;
             //TODO: Validar que el input solo acepte numeros
 
             /*****/
@@ -167,18 +172,22 @@
                 if (item.codigo === codigo) {
                     subTotal = item.precio * quantity;
                     item.subTotal = subTotal;
+                    return;
                 }
             })
             if (!existingError) {
                 document.querySelector("." + codigo).innerHTML = subTotal;
 
                 //Calculate Total
-                let total = 0;
+                var total = 0;
                 productFinalSelected.forEach(item => {
                     total = total + item.subTotal;
                 })
                 document.querySelector("#total"+name).innerHTML = total;
+                document.getElementById("total_pedido"+name).value = total;
             }
+
+            return;
         }
 
 
@@ -199,6 +208,20 @@
             document.querySelector("#total"+name).innerHTML = "0";
             productsSelected = [];
             productFinalSelected = [];
+        }
+
+        function handleSave(e){
+            const name = e.target.name;
+            let trs = document.querySelectorAll(`#databody${name} tr`);
+            //const tablebody = document.querySelector("#databody"+name);
+            trs.forEach(iten => {
+                iten.remove();
+            })
+            productFinalSelected.foreach(item => {
+
+            })
+            document.querySelector("#total"+name)
+            
         }
     </script>
 </body>

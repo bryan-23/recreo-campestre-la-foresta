@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Mesa;
 use App\Models\Detalle;
+use App\Models\Cliente;
+use App\Models\Mesero;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,4 +25,11 @@ class Pedido extends Model
         return $this->hasMany(Detalle::class);
     }
     
+    public function clientes(){
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function meseros(){
+        return $this->belongsTo(Mesero::class);
+    }
 }
