@@ -26,9 +26,11 @@
 
 <body class="nav-fixed">
 
+    <canvas id="myChart" height="100px"></canvas>
     @yield('content')
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {{--  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>  --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
@@ -77,7 +79,7 @@
             })
         })()
         </script>  --}}
-
+    @stack('other-scripts')
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         let productsSelected = [];
@@ -97,14 +99,14 @@
         function handleProductLooking(e) {
             //var id_mesa = e.target.name;
             const name = e.target.name;
-            const tablebody = document.querySelector("#databody"+name);
+            const tablebody = document.querySelector("#databody" + name);
             var keycode = e.keyCode || e.which;
             if (keycode == 13) {
                 const value = e.target.value;
                 fetch('http://127.0.0.1:8000/admin/recerva/' + value)
                     .then((response) => response.json())
                     .then((data) => {
-                        
+
                         if (data.length > 0) {
                             productsSelected.push(data[0]);
                             let tr = document.createElement("tr");
@@ -134,7 +136,7 @@
                             productFinalSelected = [...productsSelected];
                             tablebody.appendChild(tr);
                         } else {
-                            handleMessage('error','Oops...','El producto que intenta buscar no existe!' )
+                            handleMessage('error', 'Oops...', 'El producto que intenta buscar no existe!')
                         }
                     });
             }
@@ -155,19 +157,19 @@
             let quantity = Number(value);
             let subTotal = 0;
             productFinalSelected.forEach(item => {
-                if (Number(value) > Number(item.stock)) { 
-                    handleMessage('error','Oops...','La cantidad ingresada supera al stock!' )
+                if (Number(value) > Number(item.stock)) {
+                    handleMessage('error', 'Oops...', 'La cantidad ingresada supera al stock!')
                     existingError = true;
                     e.target.value = item.stock;
                     return;
                 }
-    
-                if (Number(value) <= 0) { 
-                    handleMessage('error','Oops...','No puede ingresar un numero negativo!' )
+
+                if (Number(value) <= 0) {
+                    handleMessage('error', 'Oops...', 'No puede ingresar un numero negativo!')
                     existingError = true;
                     e.target.value = item.stock;
                     return;
-                } 
+                }
 
                 if (item.codigo === codigo) {
                     subTotal = item.precio * quantity;
@@ -191,7 +193,7 @@
         }
 
 
-        function handleMessage(type, title, message){
+        function handleMessage(type, title, message) {
             Swal.fire({
                 icon: type,
                 title: title,
@@ -199,13 +201,13 @@
             })
         }
 
-        function handleClose(e){
+        function handleClose(e) {
             const name = e.target.name;
             let trs = document.querySelectorAll(`#databody${name} tr`);
             trs.forEach(iten => {
                 iten.remove();
             })
-            document.querySelector("#total"+name).innerHTML = "0";
+            document.querySelector("#total" + name).innerHTML = "0";
             productsSelected = [];
             productFinalSelected = [];
         }
@@ -224,6 +226,7 @@
             
         }
     </script>
+    
 </body>
 
 </html>
