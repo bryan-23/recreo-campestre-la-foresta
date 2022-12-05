@@ -10,12 +10,10 @@ class Cliente extends Model
 {
     use HasFactory;
     protected $table='cliente';
-    protected $fillable=[
-        'documento','nombre', 'apellido','razon_social','id'
-    ];
+    protected $fillable=['documento','nombre', 'apellido','razon_social'];
 
     public function pedido(){
-        return $this->hasMany('App\Models\Pedido','id');
+        return $this->hasMany('App\Models\Pedido');
     }
 
 }

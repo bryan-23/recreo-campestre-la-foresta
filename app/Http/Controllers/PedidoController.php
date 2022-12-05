@@ -21,7 +21,7 @@ class PedidoController extends Controller
     public function index()
     {
         $pedidos=Pedido::all();
-        return response()->json(['datos'=>$pedidos],202);
+        return view('admin.Platos.index', compact( 'pedidos'));
     }
 
     /**
@@ -31,7 +31,12 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            $clientes = Cliente::get();
+            return view('admin.Platos.index', compact('clientes'));
+        } catch (\Exception $ex) {
+            return back()->with('warning', 'ocurrio un error');
+        }
     }
 
     /**

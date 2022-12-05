@@ -10,7 +10,7 @@
                         <div class="row justify-content-center">
                             <div class="col-12 col-xl-auto">
                                 <h1 class="page-title">
-                                    
+                                    {{ __('Clients') }}
                                 </h1>
                             </div>
                         </div>
@@ -19,85 +19,52 @@
                 <div class="page-body page-body-light pt-3 px-2">
                     <div class="card card-header-actions">
                         <div class="card-header">
-                            {{ __('Personal information') }}
+                            {{ __('List of Clients') }}
+                            <a href='{{route('cliente.create')}}' class="btn btn-primary lift"><em class='bx bxs-package'></em>{{ __('. New Client') }}</a>
                         </div>
-                        <main>
-                            <!-- Main page content-->
-                            <div class="container-xl px-4 mt-4">
-                                <hr class="mt-0 mb-4" />
-                                <div class="row">
-                                    <div class="col-xl-8">
-                                        <!-- Account details card-->
-                                        <div class="card mb-4">
-                                            <div class="card-header">{{ __('Account details') }}</div>
-                                            <div class="card-body">
-                                                @if (\Session::has('warning'))
-                                                    <div class="alert alert-danger">
-                                                        <ul>
-                                                            <li>{{ \Session::get('warning') }}</li>
-                                                        </ul>
-                                                    </div>
-                                                @endif
-                                                <label for="dni">{{ __('To write') }} DNI</label>
-                                                <div class="input-group">
-                                                    <input type="number" min="1" max="99999999" id="dni"
-                                                        class="form-control" placeholder="{{ __('Document') }}" />&nbsp;
-                                                    <button class="btn btn-primary" id="buscardni" align="right"
-                                                        onClick="consultarDni()">{{ __('Search') }}</button>
-                                                </div>
-                                                <form action="{{ route('cliente.store') }}" method="post"
-                                                    enctype="multipart/form-data">
-                                                    @csrf
-                                                    <!--search-->
-                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end py-2 px-4">
-                                                    </div>
-                                                    <!-- Form Group (username)-->
-                                                    <div class="row gx-3 mb-3">
-                                                        <!-- Form Group (DNI)-->
-                                                        <div class="col-md-6">
-                                                            <label class="small mb-1" for="inputDNI">DNI</label>
-                                                            <input class="form-control" name="documento" id="dni_ciudadano"
-                                                                type="text" placeholder="DNI" readonly />
-                                                        </div>
-                                                        <!-- Form Group (name)-->
-                                                        <div class="col-md-6">
-                                                            <label class="small mb-1"
-                                                                for="inputName">{{ __('Name') }}</label>
-                                                            <input class="form-control" name="nombre" id="nombres"
-                                                                type="text" placeholder="{{ __('Name') }}"
-                                                                readonly />
-                                                        </div>
-                                                    </div>
-                                                    <!-- Form Row-->
-                                                    <div class="row gx-3 mb-3">
-                                                        <!-- Form Group (last name)-->
-                                                        <div class="col-md-6">
-                                                            <label class="small mb-1" for="inputFirstName">
-                                                                {{ __('Fathers last name') }}</label>
-                                                            <input class="form-control" name="apellido"
-                                                                id="apellido_paterno" type="text"
-                                                                placeholder="{{ __('Fathers last name') }}" readonly />
-                                                        </div>
-                                                    </div>
-                                                    
-                                            </div>
-
-                                            <div class="text-center">
-                                                <!-- Save changes button-->
-                                                <button class="btn btn-primary" type="submit"><em
-                                                        class='bx bxs-memory-card'></em>{{ __('Save') }} </button>
-                                                <!-- cancel changes button-->
-                                            </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                        @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                                <ul>
+                                    <li>{{\Session::get('success')}}</li>
+                                </ul>
                             </div>
+                        @endif
+                        <div class="card-body py-2">
+                            <table class="table table-sm table-bordered table-hover " id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                        <th> {{ __('DNI') }}</th>
+                                        <th>{{ __('NOMBRE') }}</th>
+                                        <th>{{ __('APELLIDO') }}</th>
+                                        
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($clientes as $clie)
+                                    <tr>
+                                        
+                                        <td>{{$clie->documento}}</td>
+                                        <td>{{$clie->nombre}}</td>
+                                        <td>{{$clie->apellido}}</td>
+                                        <td>
+                                            <form action="{{route('cliente.destroy',$clie->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-sm lift" type="submit" onclick="return confirm('seguro que desea eliminar?');"><em class='bx bx-trash' ></em></button>
+                                            </form>
+
+                                        </td>
+
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                        </div>
                     </div>
+                </div>
             </main>
         </div>
-    </div>
-    </div>
     </div>
 @endsection

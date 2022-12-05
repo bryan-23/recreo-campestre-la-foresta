@@ -14,22 +14,22 @@ class Pedido extends Model
     use HasFactory;
     protected $table='pedido';
     protected $fillable=[
-        'monto','mesa_id','id'
+        'monto','mesa_id','cliente_id', 'mesero_id'
     ];
     
     public function mesas(){
-        return $this->belongsTo(Mesa::class);
+        return $this->belongsTo('App\Models\Mesa', 'mesa_id');
     }
 
     public function detallespedidos(){
-        return $this->hasMany(Detalle::class);
+        return $this->hasMany('App\Models\Detalle');
     }
     
     public function clientes(){
-        return $this->belongsTo(Cliente::class, 'id');
+        return $this->belongsTo('App\Models\Cliente', 'cliente_id');
     }
 
     public function meseros(){
-        return $this->belongsTo(Mesero::class);
+        return $this->belongsTo('App\Models\Mesero', 'mesero_id');
     }
 }
