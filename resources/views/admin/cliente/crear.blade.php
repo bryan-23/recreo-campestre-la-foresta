@@ -39,6 +39,7 @@
                                                     </div>
                                                 @endif
                                                 <label for="dni">{{ __('To write') }} DNI</label>
+                                                <!--empiezo  de la reniec-->
                                                 <div class="input-group">
                                                     <input type="number" min="1" max="99999999" id="dni"
                                                         class="form-control" placeholder="{{ __('Document') }}" />&nbsp;
@@ -74,9 +75,19 @@
                                                         <div class="col-md-6">
                                                             <label class="small mb-1" for="inputFirstName">
                                                                 {{ __('Fathers last name') }}</label>
-                                                            <input class="form-control" name="apellido"
+                                                            <input class="form-control" name="apellido_paterno"
                                                                 id="apellido_paterno" type="text"
                                                                 placeholder="{{ __('Fathers last name') }}" readonly />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3 mb-3">
+                                                        <!-- Form Group (last name)-->
+                                                        <div class="col-md-6">
+                                                            <label class="small mb-1" for="inputFirstName">
+                                                                {{ __('Mother last name') }}</label>
+                                                            <input class="form-control" name="apellido_materno"
+                                                                id="apellido_materno" type="text"
+                                                                placeholder="{{ __('Mother last name') }}" readonly />
                                                         </div>
                                                     </div>
                                                     

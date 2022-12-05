@@ -35,7 +35,7 @@
                                     <tr>
                                         <th> {{ __('DNI') }}</th>
                                         <th>{{ __('NOMBRE') }}</th>
-                                        <th>{{ __('APELLIDO') }}</th>
+                                        <th>{{ __('APELLIDOS') }}</th>
                                         
 
                                     </tr>
@@ -46,12 +46,12 @@
                                         
                                         <td>{{$clie->documento}}</td>
                                         <td>{{$clie->nombre}}</td>
-                                        <td>{{$clie->apellido}}</td>
+                                        <td>{{$clie->apellido_paterno}}  {{$clie->apellido_materno}}</td>
                                         <td>
                                             <form action="{{route('cliente.destroy',$clie->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger btn-sm lift" type="submit" onclick="return confirm('seguro que desea eliminar?');"><em class='bx bx-trash' ></em></button>
+                                                <button class="btn btn-danger btn-sm lift" type="submit" onclick="return confirm('seguro que desea eliminar este usuario?');"><em class='bx bx-trash' ></em></button>
                                             </form>
 
                                         </td>

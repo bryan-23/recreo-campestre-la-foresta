@@ -17,8 +17,8 @@ class CreateClienteTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string("nombre")->nullable();
-            $table->string("apellido")->nullable();
-            $table->string("razon_social")->nullable();
+            $table->string("apellido_paterno")->nullable();
+            $table->string("apellido_materno")->nullable();
             $table->string("documento");
             
         });

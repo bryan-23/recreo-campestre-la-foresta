@@ -21,7 +21,7 @@ class PedidoController extends Controller
     public function index()
     {
         $pedidos=Pedido::all();
-        return view('admin.Platos.index', compact( 'pedidos'));
+        return response()->json(['datos'=>$pedidos],202);
     }
 
     /**
@@ -32,8 +32,9 @@ class PedidoController extends Controller
     public function create()
     {
         try {
+            $listado_mesas = Mesa::get();
             $clientes = Cliente::get();
-            return view('admin.Platos.index', compact('clientes'));
+            return view('admin.Platos.index', compact('clientes','listado_mesas'));
         } catch (\Exception $ex) {
             return back()->with('warning', 'ocurrio un error');
         }
