@@ -115,7 +115,7 @@
                                 tr.innerHTML = `
                                 <td>${item.codigo}</td>
                                 <td>${item.nombre}</td>
-                                <td>Descripcion arroz chaufa</td>
+                                <td>${item.descripcion}</td>
                                 <td>
                                     <input type="hidden" name="detalle_${item.codigo}" value="${item.id}">
                                     <input onchange="calculateSubTotal(event);" name=${item.codigo} id=${name} type="text" class="form-control" value=${item.stock}>
