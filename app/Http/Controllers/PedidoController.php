@@ -94,7 +94,8 @@ class PedidoController extends Controller
             }
         }
 
-        return $request->toArray();
+        return redirect()->route("listado_mesass");
+        //return $request->toArray();
 
     }
 
