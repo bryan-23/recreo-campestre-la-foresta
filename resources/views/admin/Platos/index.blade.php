@@ -85,6 +85,37 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="container text-center">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Bebidas</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Entradas</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Fondos</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Fusión</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Regionales</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Piqueos</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Parrillas</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Postres</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-secondary">Guarniciones</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
@@ -94,6 +125,7 @@
                                                             <th scope="col">Cantidad</th>
                                                             <th scope="col">Precio</th>
                                                             <th scope="col">Sub Total</th>
+                                                            <th scope="col">Opciones</th>
                                                         </tr>
                                                     </thead>
                                           
